@@ -13,12 +13,14 @@
 		5EB7122224F9616A0044E3AE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB7122124F9616A0044E3AE /* Preview Assets.xcassets */; };
 		5EB7122524F9616A0044E3AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB7122324F9616A0044E3AE /* LaunchScreen.storyboard */; };
 		5EB7123024F9616A0044E3AE /* AirBnbAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7122F24F9616A0044E3AE /* AirBnbAssignmentTests.swift */; };
-		5EB7123F24F965DE0044E3AE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7123E24F965DE0044E3AE /* NetworkService.swift */; };
+		5EB7123F24F965DE0044E3AE /* ABNBNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7123E24F965DE0044E3AE /* ABNBNetworkService.swift */; };
 		5EB7124124F966980044E3AE /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124024F966980044E3AE /* AlbumModel.swift */; };
 		5EB7124324F966A40044E3AE /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124224F966A40044E3AE /* AlbumViewModel.swift */; };
 		5EB7124524F966D40044E3AE /* AlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124424F966D40044E3AE /* AlbumList.swift */; };
-		5EB7124824F967390044E3AE /* UrlUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124724F967390044E3AE /* UrlUtility.swift */; };
+		5EB7124824F967390044E3AE /* ABNBUrlUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124724F967390044E3AE /* ABNBUrlUtility.swift */; };
 		5EB7124A24F967820044E3AE /* AlbumListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124924F967820044E3AE /* AlbumListRow.swift */; };
+		5EB7124D24F968B50044E3AE /* ABNBImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124C24F968B50044E3AE /* ABNBImageView.swift */; };
+		5EB7124F24F968EC0044E3AE /* ABNBActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7124E24F968EC0044E3AE /* ABNBActivityIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +44,14 @@
 		5EB7122B24F9616A0044E3AE /* AirBnbAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirBnbAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EB7122F24F9616A0044E3AE /* AirBnbAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirBnbAssignmentTests.swift; sourceTree = "<group>"; };
 		5EB7123124F9616A0044E3AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EB7123E24F965DE0044E3AE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5EB7123E24F965DE0044E3AE /* ABNBNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABNBNetworkService.swift; sourceTree = "<group>"; };
 		5EB7124024F966980044E3AE /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		5EB7124224F966A40044E3AE /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		5EB7124424F966D40044E3AE /* AlbumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumList.swift; sourceTree = "<group>"; };
-		5EB7124724F967390044E3AE /* UrlUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlUtility.swift; sourceTree = "<group>"; };
+		5EB7124724F967390044E3AE /* ABNBUrlUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABNBUrlUtility.swift; sourceTree = "<group>"; };
 		5EB7124924F967820044E3AE /* AlbumListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListRow.swift; sourceTree = "<group>"; };
+		5EB7124C24F968B50044E3AE /* ABNBImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABNBImageView.swift; sourceTree = "<group>"; };
+		5EB7124E24F968EC0044E3AE /* ABNBActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABNBActivityIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		5EB7121724F961670044E3AE /* AirBnbAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				5EB7124B24F9685B0044E3AE /* CustomView */,
 				5EB7124624F967250044E3AE /* Utilities */,
 				5EB7123D24F965BA0044E3AE /* WebService */,
 				5EB7123C24F9659D0044E3AE /* ViewModels */,
@@ -149,7 +154,7 @@
 		5EB7123D24F965BA0044E3AE /* WebService */ = {
 			isa = PBXGroup;
 			children = (
-				5EB7123E24F965DE0044E3AE /* NetworkService.swift */,
+				5EB7123E24F965DE0044E3AE /* ABNBNetworkService.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -157,9 +162,18 @@
 		5EB7124624F967250044E3AE /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5EB7124724F967390044E3AE /* UrlUtility.swift */,
+				5EB7124724F967390044E3AE /* ABNBUrlUtility.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5EB7124B24F9685B0044E3AE /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				5EB7124C24F968B50044E3AE /* ABNBImageView.swift */,
+				5EB7124E24F968EC0044E3AE /* ABNBActivityIndicatorView.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,10 +281,12 @@
 				5EB7121924F961670044E3AE /* AppDelegate.swift in Sources */,
 				5EB7124A24F967820044E3AE /* AlbumListRow.swift in Sources */,
 				5EB7124524F966D40044E3AE /* AlbumList.swift in Sources */,
-				5EB7124824F967390044E3AE /* UrlUtility.swift in Sources */,
+				5EB7124D24F968B50044E3AE /* ABNBImageView.swift in Sources */,
+				5EB7124824F967390044E3AE /* ABNBUrlUtility.swift in Sources */,
+				5EB7124F24F968EC0044E3AE /* ABNBActivityIndicatorView.swift in Sources */,
 				5EB7124124F966980044E3AE /* AlbumModel.swift in Sources */,
 				5EB7121B24F961670044E3AE /* SceneDelegate.swift in Sources */,
-				5EB7123F24F965DE0044E3AE /* NetworkService.swift in Sources */,
+				5EB7123F24F965DE0044E3AE /* ABNBNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

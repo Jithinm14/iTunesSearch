@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct AlbumList: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List() {
+                AlbumListRow()
+            }.navigationBarTitle("Now Playing")
+        }
     }
 }
 

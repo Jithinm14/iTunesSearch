@@ -9,8 +9,24 @@
 import SwiftUI
 
 struct AlbumListRow: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+         HStack {
+                   Image("placeHolder")
+                   VStack(alignment: .leading) {
+                       Text("Artist Name").font(.title).multilineTextAlignment(.leading)
+                       Spacer().frame(height: 10)
+                       Text("Track Name").font(.system(size: 13)).multilineTextAlignment(.leading)
+                       Spacer().frame(height: 10)
+                       VStack(alignment: .leading) {
+                           Text("Collection Name").font(.system(size: 13)).multilineTextAlignment(.leading)
+                           Spacer().frame(height: 10)
+                           Text("Collection Price").font(.system(size: 13)).multilineTextAlignment(.leading)
+                           Spacer().frame(height: 10)
+                           Text("ReleaseDate").font(.system(size: 11)).multilineTextAlignment(.leading)
+                       }
+                   }
+               }.environment(\.defaultMinListRowHeight, 278)
     }
 }
 
