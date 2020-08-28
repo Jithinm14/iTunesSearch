@@ -10,10 +10,12 @@ import SwiftUI
 
 struct AlbumList: View {
     
+    @ObservedObject var albumListViewModel = AlbumListViewModel()
+    
     var body: some View {
         NavigationView {
-            List() {
-                AlbumListRow()
+           List(self.albumListViewModel.albums, id: \.id) { album in
+                AlbumListRow(album: album)
             }.navigationBarTitle("Now Playing")
         }
     }

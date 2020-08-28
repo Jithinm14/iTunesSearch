@@ -10,20 +10,26 @@ import SwiftUI
 
 struct AlbumListRow: View {
     
+    var album : AlbumViewModel
+    
+    init(album: AlbumViewModel) {
+        self.album = album
+    }
+    
     var body: some View {
          HStack {
                    Image("placeHolder")
                    VStack(alignment: .leading) {
-                       Text("Artist Name").font(.title).multilineTextAlignment(.leading)
+                    Text(album.artistName).font(.title).multilineTextAlignment(.leading)
                        Spacer().frame(height: 10)
-                       Text("Track Name").font(.system(size: 13)).multilineTextAlignment(.leading)
+                    Text(album.trackName).font(.system(size: 13)).multilineTextAlignment(.leading)
                        Spacer().frame(height: 10)
                        VStack(alignment: .leading) {
-                           Text("Collection Name").font(.system(size: 13)).multilineTextAlignment(.leading)
+                        Text(album.collectionName).font(.system(size: 13)).multilineTextAlignment(.leading)
                            Spacer().frame(height: 10)
-                           Text("Collection Price").font(.system(size: 13)).multilineTextAlignment(.leading)
+                        Text(album.collectionPrice).font(.system(size: 13)).multilineTextAlignment(.leading)
                            Spacer().frame(height: 10)
-                           Text("ReleaseDate").font(.system(size: 11)).multilineTextAlignment(.leading)
+                        Text(album.releaseDate).font(.system(size: 11)).multilineTextAlignment(.leading)
                        }
                    }
                }.environment(\.defaultMinListRowHeight, 278)
@@ -32,6 +38,6 @@ struct AlbumListRow: View {
 
 struct AlbumListRow_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumListRow()
+        AlbumListRow(album: AlbumViewModel(album: Album(artistName: "Artist Name", trackName: "Track Name", collectionName: "Collection Name", collectionPrice: 12, releaseDate: "ReleaseDate", artworkUrl100: "")))
     }
 }

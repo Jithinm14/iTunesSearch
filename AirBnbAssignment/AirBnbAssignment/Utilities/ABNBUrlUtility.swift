@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+final class ABNBUrlUtility {
+    
+    static private let baseUrl : String = "https://itunes.apple.com/search?term="
+    
+    static func searchUrlForResource(searchString: String) -> URL {
+        guard let posterUrl = URL(string: (baseUrl + searchString)) else {
+            //TODO: Handle later.
+            return URL(string: "")!
+        }
+        return posterUrl
+    }
+    
+}
