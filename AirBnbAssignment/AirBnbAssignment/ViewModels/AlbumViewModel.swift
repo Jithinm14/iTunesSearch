@@ -75,8 +75,12 @@ struct AlbumViewModel : Identifiable {
         return "Collection Price : \(collectionPrice)"
     }
     
-    var posterResource : String {
-        return album?.artworkUrl100 ?? placeHolder
+    var albumArtResource : AlbumArtWorkModel {
+        
+        guard let albumArtResource = album?.artworkUrl100 else {
+            return AlbumArtWorkModel(posterUrl: nil)
+        }
+        return AlbumArtWorkModel(posterUrl: URL(string: albumArtResource))
     }
     
     init(album: Album) {

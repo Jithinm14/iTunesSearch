@@ -18,7 +18,7 @@ struct AlbumListRow: View {
     
     var body: some View {
          HStack {
-                   Image("placeHolder")
+            ABNBImageView(imageResource: album.albumArtResource)
                    VStack(alignment: .leading) {
                     Text(album.artistName).font(.title).multilineTextAlignment(.leading)
                        Spacer().frame(height: 10)

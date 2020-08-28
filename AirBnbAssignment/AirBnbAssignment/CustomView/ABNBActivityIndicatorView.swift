@@ -7,15 +7,33 @@
 //
 
 import SwiftUI
+import UIKit
 
-struct ABNBActivityIndicatorView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ABNBActivityIndicator : UIViewRepresentable {
+    
+    typealias UIViewType = UIActivityIndicatorView
+    @Binding var animate : Bool
+    
+    func makeUIView(context: Context) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: .medium)
     }
+    
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
+        if animate {
+            uiView.startAnimating()
+        } else {
+            uiView.stopAnimating()
+        }
+    }
+    
 }
 
-struct ABNBActivityIndicatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ABNBActivityIndicatorView()
+struct ABNBActivityIndicatorView : View {
+    
+    @Binding var shouldAnimate : Bool
+    
+    var body: some View {
+        ABNBActivityIndicator(animate: $shouldAnimate)
     }
+    
 }
