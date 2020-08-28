@@ -28,8 +28,8 @@ class AlbumArtWorkViewModel: ObservableObject {
     }
     
     private func load(imageFrom url: URL) {
-        self.cancellable = URLSession.shared.downloadTaskPublisher(for: url).map{_ in
-            return UIImage(contentsOfFile: url.path)
+        self.cancellable = URLSession.shared.downloadTaskPublisher(for: url).map{
+            return UIImage(contentsOfFile: $0.url.path)
             }
         .replaceError(with: UIImage(named: "placeholder"))
         .receive(on: RunLoop.main)

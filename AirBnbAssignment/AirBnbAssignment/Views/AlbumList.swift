@@ -14,9 +14,15 @@ struct AlbumList: View {
     
     var body: some View {
         NavigationView {
-           List(self.albumListViewModel.albums, id: \.id) { album in
-                AlbumListRow(album: album)
-            }.navigationBarTitle("Now Playing")
+            Group {
+                VStack {
+                    ABNBSearchBar(text: $albumListViewModel.searchText,
+                    onSearchButtonClicked: albumListViewModel.onSearchTapped)
+                    List(self.albumListViewModel.albums, id: \.id) { album in
+                        AlbumListRow(album: album)
+                    }
+                }
+            }.navigationBarTitle(Text("iTunes Albums"))
         }
     }
 }

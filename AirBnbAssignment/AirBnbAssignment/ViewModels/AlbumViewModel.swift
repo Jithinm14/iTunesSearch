@@ -15,34 +15,38 @@ class AlbumListViewModel : ObservableObject {
     @Published var albums = [AlbumViewModel]()
     private var cancellable : AnyCancellable?
     
+    var searchText : String = ""
+    
+    private let searchTappedSubject = PassthroughSubject<Void, Error>()
+    private var disposeBag = Set<AnyCancellable>()
+    
     init() {
-        fetchAlbums()
+        searchTappedSubject
+        .flatMap {
+            self.fetchAlbums(searchString: self.searchText)
+        }.replaceError(with: [])
+        .receive(on: DispatchQueue.main)
+        .assign(to: \.albums, on: self)
+        .store(in: &disposeBag)
+        
     }
     
-    private func fetchAlbums() {
+    func onSearchTapped() {
+        searchTappedSubject.send(())
+    }
+    
+    func fetchAlbums(searchString: String) -> AnyPublisher<[AlbumViewModel], Error>{
         
-        let resource = ABNBUrlUtility.searchUrlForResource(searchString: "shakira")
+        let resource = ABNBUrlUtility.searchUrlForResource(searchString: searchString)
         
-        self.cancellable = NetworkService().fetchFromNetwork(resource: resource).map { (albumArray) -> [AlbumViewModel]  in
+        return NetworkService().fetchFromNetwork(resource: resource).map { (albumArray) -> [AlbumViewModel]  in
             albumArray.map { (album) -> AlbumViewModel in
                 return AlbumViewModel(album: album)
             }
-        }.sink(receiveCompletion: { (completion) in
-            switch completion {
-            case .failure(let error):
-                self.handleError(error: error as! NetworkError)
-            case .finished:
-                break
-            }
-        }) { (albumModelList) in
-            self.albums = albumModelList
-        }
-    }
-    
-    //TODO:
-    private func handleError(error: NetworkError) {
+        }.eraseToAnyPublisher()
         
     }
+    
 }
 
 struct AlbumViewModel : Identifiable {

@@ -24,6 +24,7 @@
 		5EB7125124F985C90044E3AE /* AlbumArtWorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7125024F985C90044E3AE /* AlbumArtWorkModel.swift */; };
 		5EB7125324F986210044E3AE /* AlbumArtWorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7125224F986210044E3AE /* AlbumArtWorkViewModel.swift */; };
 		5EB7125624F986E20044E3AE /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7125524F986E20044E3AE /* URLSession+Extension.swift */; };
+		5EB7125824F992540044E3AE /* ABNBSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7125724F992540044E3AE /* ABNBSearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		5EB7125024F985C90044E3AE /* AlbumArtWorkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtWorkModel.swift; sourceTree = "<group>"; };
 		5EB7125224F986210044E3AE /* AlbumArtWorkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtWorkViewModel.swift; sourceTree = "<group>"; };
 		5EB7125524F986E20044E3AE /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		5EB7125724F992540044E3AE /* ABNBSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABNBSearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			children = (
 				5EB7124C24F968B50044E3AE /* ABNBImageView.swift */,
 				5EB7124E24F968EC0044E3AE /* ABNBActivityIndicatorView.swift */,
+				5EB7125724F992540044E3AE /* ABNBSearchBar.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				5EB7124124F966980044E3AE /* AlbumModel.swift in Sources */,
 				5EB7125624F986E20044E3AE /* URLSession+Extension.swift in Sources */,
 				5EB7121B24F961670044E3AE /* SceneDelegate.swift in Sources */,
+				5EB7125824F992540044E3AE /* ABNBSearchBar.swift in Sources */,
 				5EB7123F24F965DE0044E3AE /* ABNBNetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

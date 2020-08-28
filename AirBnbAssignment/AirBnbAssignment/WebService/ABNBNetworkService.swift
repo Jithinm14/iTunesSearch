@@ -21,7 +21,7 @@ class NetworkService {
     
     func fetchFromNetwork(resource: URL) -> AnyPublisher<[Album], Error> {
         
-        print(resource.baseURL)
+        print(resource.path)
                 
         return URLSession.shared.dataTaskPublisher(for: resource)
             .retry(2)
