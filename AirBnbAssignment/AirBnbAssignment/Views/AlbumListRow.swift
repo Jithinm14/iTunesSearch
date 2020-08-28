@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AlbumListRow.swift
 //  AirBnbAssignment
 //
 //  Created by Jithin M on 28/08/20.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AlbumListRow: View {
     var body: some View {
-        Text("Hello, World!")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AlbumListRow_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AlbumListRow()
     }
 }
