@@ -22,14 +22,33 @@ class AlbumListViewModel : ObservableObject {
     private var disposeBag = Set<AnyCancellable>()
     
     init() {
-        searchTappedSubject
+        self.cancellable = searchTappedSubject
         .flatMap {
             self.fetchAlbums(searchString: self.searchText)
         }.replaceError(with: [])
         .receive(on: DispatchQueue.main)
-        .assign(to: \.albums, on: self)
-        .store(in: &disposeBag)
+        .sink(receiveCompletion: { (completion) in
+            
+        }) { (albumModelList) in
+            self.albums = albumModelList
+            self.filterOn(.none)
+        }
+    }
+    
+    //TODO:
+    private func handleError(error: NetworkError) {
         
+    }
+    
+    func fetchAlbums(searchString: String) -> AnyPublisher<[AlbumViewModel], Error>{
+        
+        let resource = ABNBUrlUtility.searchUrlForResource(searchString: searchString)
+        
+        return NetworkService().fetchFromNetwork(resource: resource).map { (albumArray) -> [AlbumViewModel]  in
+            albumArray.map { (album) -> AlbumViewModel in
+                return AlbumViewModel(album: album)
+            }
+        }.eraseToAnyPublisher()
     }
     
     func filterOn(_ filter: AlbumFilter) {
@@ -65,18 +84,6 @@ class AlbumListViewModel : ObservableObject {
     func onSearchTapped() {
         searchTappedSubject.send(())
     }
-    
-    func fetchAlbums(searchString: String) -> AnyPublisher<[AlbumViewModel], Error>{
-        
-        let resource = ABNBUrlUtility.searchUrlForResource(searchString: searchString)
-        
-        return NetworkService().fetchFromNetwork(resource: resource).map { (albumArray) -> [AlbumViewModel]  in
-            albumArray.map { (album) -> AlbumViewModel in
-                return AlbumViewModel(album: album)
-            }
-        }.eraseToAnyPublisher()
-    }
-    
 }
 
 struct AlbumViewModel : Identifiable {
