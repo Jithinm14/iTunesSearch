@@ -14,6 +14,7 @@ class AlbumListViewModel : ObservableObject {
     
     @Published var albums = [AlbumViewModel]()
     private var cancellable : AnyCancellable?
+    private let placeHolder = "N/A"
     
     var searchText : String = ""
     
@@ -31,6 +32,36 @@ class AlbumListViewModel : ObservableObject {
         
     }
     
+    func filterOn(_ filter: AlbumFilter) {
+        switch filter {
+        case .none:
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssXXXXX"
+            self.albums.sort {
+                guard $0.releaseDate != placeHolder, $1.releaseDate != placeHolder else { return false}
+                guard let date0 = dateFormatter.date(from:$0.releaseDate), let date1 = dateFormatter.date(from:$1.releaseDate) else { return false }
+                return (date0.compare(date1) == .orderedDescending)
+            }
+        case .artistName:
+            self.albums.sort {
+                $0.artistName < $1.artistName
+            }
+        case .trackName:
+            self.albums.sort {
+                $0.trackName < $1.trackName
+            }
+        case .collectionName:
+            self.albums.sort {
+                $0.collectionName < $1.collectionName
+            }
+        case .collectionPriceDescending:
+            self.albums.sort {
+                $0.collectionPrice > $1.collectionPrice
+            }
+        }
+    }
+    
     func onSearchTapped() {
         searchTappedSubject.send(())
     }
@@ -44,7 +75,6 @@ class AlbumListViewModel : ObservableObject {
                 return AlbumViewModel(album: album)
             }
         }.eraseToAnyPublisher()
-        
     }
     
 }
@@ -69,14 +99,14 @@ struct AlbumViewModel : Identifiable {
     
     var releaseDate : String {
         let release = album?.releaseDate ?? placeHolder
-        return String("Release : \(release)")
+        return release
     }
     
     var collectionPrice : String {
         guard let collectionPrice = album?.collectionPrice else {
             return placeHolder
         }
-        return "Collection Price : \(collectionPrice)"
+        return "\(collectionPrice)"
     }
     
     var albumArtResource : AlbumArtWorkModel {
