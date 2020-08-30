@@ -76,7 +76,8 @@ class AlbumListViewModel : ObservableObject {
             }
         case .collectionPriceDescending:
             self.albums.sort {
-                $0.collectionPrice > $1.collectionPrice
+                guard let price0 = Double($0.collectionPrice), let price1 = Double($1.collectionPrice) else { return false }
+                return price0 > price1
             }
         }
     }
