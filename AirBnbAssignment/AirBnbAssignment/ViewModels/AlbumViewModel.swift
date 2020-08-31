@@ -87,10 +87,13 @@ class AlbumListViewModel : ObservableObject {
     }
 }
 
-struct AlbumViewModel : Identifiable {
+class AlbumViewModel : Identifiable,ObservableObject {
+    
+    @Published var addedToCart = false
     
     private var album : Album?
     private let placeHolder = "N/A"
+    
     let id = UUID()
     
     var artistName : String {

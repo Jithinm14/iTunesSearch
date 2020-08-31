@@ -48,8 +48,10 @@ enum AlbumFilter {
 
 struct AlbumList: View {
     
+    @EnvironmentObject var albumCart : AlbumCart
     @ObservedObject var albumListViewModel = AlbumListViewModel()
     @State private var showingFilterOptions = false
+    @State private var showingCart = false
     @State private var navigationTitle = "iTunes Albums"
         
     var body: some View {
@@ -63,11 +65,18 @@ struct AlbumList: View {
                     }
                 }
                 }.navigationBarTitle(Text(navigationTitle))
-                .navigationBarItems(trailing: Button(action: {
+                .navigationBarItems(leading: Button(action: {
                     self.showingFilterOptions = true
                 }) {
-                    Text("Sort")
-                }.disabled(albumListViewModel.albums.count == 0))
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                }.disabled(albumListViewModel.albums.count == 0), trailing: Button(action: {
+                    self.showingCart = true
+                }) {
+                    Image(systemName: "cart")
+                }.disabled(self.albumCart.cartItems.count == 0)
+                .sheet(isPresented: $showingCart) {
+                    AlbumCartView().environmentObject(self.albumCart)
+                })
                 .actionSheet(isPresented: $showingFilterOptions) { () -> ActionSheet in
                     ActionSheet(title: Text("Choose a sort option").font(.headline), message: nil, buttons: [
                         .default(Text(AlbumFilter.none.sortFilterTitle), action: {
