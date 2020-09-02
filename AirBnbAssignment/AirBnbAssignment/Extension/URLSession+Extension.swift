@@ -7,8 +7,9 @@
 //
 
 import Foundation
-
 import Combine
+
+/* Custom Publisher created for URLSession's download task. URLSession only provides data task publisher as of now.*/
 
 extension URLSession {
 

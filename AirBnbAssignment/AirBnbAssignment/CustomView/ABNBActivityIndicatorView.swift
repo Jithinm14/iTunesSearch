@@ -9,6 +9,8 @@
 import SwiftUI
 import UIKit
 
+/* A swiftUI wrapper for 'UIActivityIndicatorView' */
+
 struct ABNBActivityIndicator : UIViewRepresentable {
     
     typealias UIViewType = UIActivityIndicatorView

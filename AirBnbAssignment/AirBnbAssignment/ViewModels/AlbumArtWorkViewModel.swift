@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 import Combine
 import SwiftUI
 
@@ -16,7 +15,6 @@ class AlbumArtWorkViewModel: ObservableObject {
     @Published var image : UIImage?
     var cancellable : AnyCancellable?
     let albumArtWorkModel : AlbumArtWorkModel
-    
     
     init(albumArt: AlbumArtWorkModel) {
         self.albumArtWorkModel = albumArt

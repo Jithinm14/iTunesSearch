@@ -31,6 +31,7 @@ class AlbumListViewModel : ObservableObject {
             
         }) { (albumModelList) in
             self.albums = albumModelList
+            //By default the filter option used is based on release dates.
             self.filterOn(.none)
         }
     }

@@ -9,6 +9,8 @@
 import Foundation
 import Combine
 
+/* Album cart class is maitained as an Environment variable and the data state would be shared across multiple views*/
+
 class AlbumCart: ObservableObject {
     @Published var cartItems = [AlbumViewModel]()
     

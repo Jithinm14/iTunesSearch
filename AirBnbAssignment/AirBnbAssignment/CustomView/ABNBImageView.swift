@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+/* ABNBImageView shows an activity indicator while the image url inside the view model
+ object is getting downloaded */
+
 struct ABNBImageView: View {
     
     @ObservedObject var albumArt : AlbumArtWorkViewModel
@@ -21,7 +24,7 @@ struct ABNBImageView: View {
             if albumArt.image != nil {
                 Image(uiImage: albumArt.image!)
             } else {
-                ABNBActivityIndicator(animate: Binding<Bool>.constant(true))
+                ABNBActivityIndicator(animate: Binding<Bool>.constant(true)).padding(40)
             }
         }
     }

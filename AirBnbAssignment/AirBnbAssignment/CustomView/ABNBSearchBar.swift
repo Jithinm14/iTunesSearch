@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+
+/* A SwiftUI wrapper for 'UISearchBar' */
  
 struct ABNBSearchBar: UIViewRepresentable {
 
@@ -44,4 +46,10 @@ struct ABNBSearchBar: UIViewRepresentable {
         uiView.text = text
     }
 
+}
+
+struct ABNBSearchBar_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }
